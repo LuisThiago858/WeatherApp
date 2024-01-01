@@ -17,9 +17,6 @@
     align-items: center;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
 }
-.card-day .card-date-week{
-    
-}
 
 .forecast-for-the-week .card-day .card-img-weather{
     margin-top: 1rem;
