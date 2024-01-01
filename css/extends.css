@@ -1,0 +1,8 @@
+@import './globals.css';
+@import './variables.css';
+
+
+@import './components/main.css';
+@import './components/card-principal.css';
+@import './components/card-wind-condition.css';
+@import './components/forecast-for-the-week.css';

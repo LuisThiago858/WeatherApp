@@ -1,0 +1,12 @@
+:root{
+    --background-main:rgb(216, 220, 227);
+    --background-sun: linear-gradient(0deg, rgb(217, 197, 225) 0%, rgba(56,169,242,1) 100%);
+    --background-cloudy: linear-gradient(0deg, rgb(218, 203, 206) 0%, rgba(157,159,160,1) 100%);
+    --background-card:#fffefe;
+    --text-principal-white: rgb(255, 255, 255);
+    --text-secondary-gray: #3c415c;
+    --text-secondary-dark:#1b1b1b;
+
+    --font-family: 'DM Sans', sans-serif;
+    
+}

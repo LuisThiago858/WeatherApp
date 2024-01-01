@@ -1,0 +1,1 @@
+Esse e um projeto utilizando apenas HTML/CSS/Javascript que consome a API da OpenWeather que fornece dados do clima de até 5 dias na semana para qualquer cidade do mundo, como e uma API grátis ela fixa os 5 dias em que e possivel ver os dados do clima a partir da primeira vez que vc utilizar e vai diminuindo o numero de previsões até esse dia terminar.

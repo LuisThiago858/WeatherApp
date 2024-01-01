@@ -1,0 +1,47 @@
+.card-principal{
+    margin: 0 auto;
+    padding: 3rem;
+    width: 25rem;
+    border: 0.2rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3%;
+    background: var(--background-sun);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
+}
+.card-principal-rain{
+    margin: 0 auto;
+    padding: 3rem;
+    width: 25rem;
+    border: 0.2rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3%;
+    background: var(--background-cloudy);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
+}
+.card-principal .input-field{
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Adiciona bordas arredondadas */
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.5); /* Adiciona uma leve transparência */
+}
+.card-principal .button{
+    border: none;
+    border-radius: 20px; /* Adiciona bordas arredondadas */
+    padding: 10px 15px;
+    margin-top: 1rem;
+    background-color: rgb(255, 255, 255, 0.5);
+    color: var(--text-secondary-gray);
+    cursor: pointer;
+}
+.card-principal .temp-principal{
+    font-size: 5rem;
+}
+.card-principal .clouds-city{
+    width: 10rem;
+}

@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: var(--font-family);
+}
+
+.title-app{
+    color:var(--text-secondary-gray);
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 2rem;
+}
+
+h1{
+    color: var(--text-principal-white);
+}

@@ -1,0 +1,25 @@
+.card-wind-condition{
+    background: var(--background-card);
+    margin: 2rem auto;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 25rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
+}
+
+.card-wind-condition .wind-information .wind-img-speed{
+    width: 2rem;
+    
+    filter: brightness(80%) saturate(200%) hue-rotate(180deg);
+}
+.card-wind-condition .wind-information .wind-img-direction{
+    width: 2rem;
+    align-self: center;
+}
+.card-wind-condition .wind-information .wind-img-gust{
+    width: 2rem;
+    align-self: center;
+}
