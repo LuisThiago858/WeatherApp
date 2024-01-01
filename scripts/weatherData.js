@@ -2,7 +2,7 @@ function mySearch(){
   var inputValue=document.querySelector('#myInput').value;
   const city_name=inputValue;
   const api_key = "09cbafb7a5f7a20c8584da68c2163415";
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${api_key}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${api_key}`;
   
   function kelvinToCelsius(tempKelvin) {
     return tempKelvin - 273.15;
