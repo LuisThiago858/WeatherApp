@@ -53,6 +53,6 @@
     }
     .card-principal-rain{
         padding: 1.5rem; /* Ajuste o padding para telas menores */
-        margin: 3.0rem;
+        margin: 0rem 3.0rem -1rem 3.0rem;
     }
 }
