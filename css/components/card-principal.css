@@ -1,7 +1,7 @@
 .card-principal{
     margin: 0 auto;
     padding: 3rem;
-    width: 25rem;
+    max-width: 25rem;
     border: 0.2rem;
     display: flex;
     text-align: center;
@@ -14,7 +14,7 @@
 .card-principal-rain{
     margin: 0 auto;
     padding: 3rem;
-    width: 25rem;
+    max-width: 25rem;
     border: 0.2rem;
     display: flex;
     text-align: center;
@@ -44,4 +44,15 @@
 }
 .card-principal .clouds-city{
     width: 10rem;
+}
+
+@media (max-width: 600px) {
+    .card-principal {
+        padding: 1.5rem; /* Ajuste o padding para telas menores */
+        margin: 3.0rem;
+    }
+    .card-principal-rain{
+        padding: 1.5rem; /* Ajuste o padding para telas menores */
+        margin: 3.0rem;
+    }
 }

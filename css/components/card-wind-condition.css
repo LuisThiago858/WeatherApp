@@ -3,7 +3,7 @@
     margin: 2rem auto;
     padding: 0.5rem;
     border-radius: 0.2rem;
-    width: 25rem;
+    max-width: 25rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -22,4 +22,12 @@
 .card-wind-condition .wind-information .wind-img-gust{
     width: 2rem;
     align-self: center;
+}
+
+
+@media (max-width: 600px) {
+    .card-wind-condition{
+        padding: 1.5rem; /* Ajuste o padding para telas menores */
+        margin: 3.0rem;
+    } 
 }

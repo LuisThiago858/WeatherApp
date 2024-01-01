@@ -2,7 +2,7 @@
     margin: 0 auto;
     padding: 0.2rem auto;
     display: flex;
-    width: 25rem;
+    max-width: 25rem;
     justify-content: space-around;
     
 }
@@ -10,7 +10,7 @@
     background: var(--background-card);
     border-radius: 0.2rem;
     padding: 2rem;
-    width: 4rem;
+    max-width: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,4 +32,15 @@
 .forecast-for-the-week .card-day .card-temp-max{  
     font-weight: bold;
     font-size: large;
+}
+
+@media (max-width: 600px) {
+    .forecast-for-the-week{
+        max-width: 20rem;
+    }
+    .card-day{
+        padding: 1.5rem; /* Ajuste o padding para telas menores */
+        margin: 0rem;
+        max-width: 2.5rem;
+    } 
 }
