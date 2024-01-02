@@ -53,7 +53,6 @@ function mySearch(){
       }
   
       if (day !== dayOfWeek && day > dayOfWeek) {
-        //const dayName = new Date(item.dt * 1000).toLocaleDateString("pt-BR", { weekday: "long" });
         const dayName = expectedDate.toLocaleDateString("pt-BR", {day:'2-digit', month:'2-digit'});
         if (!result[dayName]) {
           result[dayName] = {
@@ -116,40 +115,55 @@ function mySearch(){
         tempWindDeg.textContent=wind.deg+' °';
         var tempWindGust=document.querySelector('#gust-of-wind');
         tempWindGust.textContent=wind.gust+' km/h';
-        if(weather.main==='Clear'){
+
+        if(weather && weather.main){
           var cloudImage = document.querySelector('.clouds-city');
-          cloudImage.src = './assets/sun.png';
           var primCard = document.querySelector('#card-principal1');
-          primCard.classList.add('card-principal');
+
+          if(weather.main==='Clear'){
+            cloudImage.src = './assets/cloudsun.png';
+
+            if(weather.description==='clear sky'){
+              cloudImage.src = './assets/sun.png';
+              primCard.classList.add('card-principal1');
+            }
+          }else if (weather.main === 'Clouds') {
+
+            if (weather.description === 'few clouds') {
+              cloudImage.src = './assets/cloudy.png';
+              primCard.classList.add('card-principal1');
+
+            } else if (weather.description === 'broken clouds' || weather.description === 'overcast clouds') {
+              cloudImage.src = './assets/cloud.png';
+              primCard.classList.add('card-principal-rain');
+            }
+          }else if(weather.main==='Rain' ){
+            cloudImage.src = './assets/rain.png';
+            primCard.classList.add('card-principal-rain');
+
+          }else if(weather.main==='Drizzle'){
+            cloudImage.src = './assets/rain (1).png';
+            primCard.classList.add('card-principal-rain');
+
+          }else if(weather.main==='Thunderstorm'){
+            cloudImage.src = './assets/storm.png';
+            primCard.classList.add('card-principal-rain');
+
+          }else if(weather.main==='Snow'){
+            cloudImage.src = './assets/snow.png';
+
+          }else if(weather.main==='Mist'){
+            cloudImage.src = './assets/mist.png';
+            
+          }
         }
-        if(weather.main==='Clouds'){
-          var cloudImage = document.querySelector('.clouds-city');
-          cloudImage.src = './assets/cloud.png';
-          var primCard = document.querySelector('#card-principal1');
-          primCard.classList.add('card-principal-rain');
-        }
-        if(weather.main==='Rain' ){
-          var cloudImage = document.querySelector('.clouds-city');
-          cloudImage.src = './assets/storm.png';
-          var primCard = document.querySelector('#card-principal1');
-          primCard.classList.add('card-principal-rain');
-        }
-        if(weather.main==='Snow'){
-          var cloudImage = document.querySelector('.clouds-city');
-          cloudImage.src = './assets/snow.png';
-        }
-        if(weather.main==='Mist'){
-          var cloudImage = document.querySelector('.clouds-city');
-          cloudImage.src = './assets/mist.png';
-        }
+       
 
   
         // Imprimir as previsões para os próximos dias
         Object.keys(next5DayForecast).forEach((day) => {
             if (day !== "today") {
               const { tempMin, tempMax} = next5DayForecast[day];
-              console.log(`Previsões para ${day}:`);
-              console.log(`   - Mínima: ${tempMin.toFixed(1)}°C, Máxima: ${tempMax.toFixed(1)}°C`);
               
               var cards = document.querySelector('#fftw');
               var forecastElement =document.createElement('div');
