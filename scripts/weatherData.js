@@ -128,43 +128,55 @@ function mySearch(){
         
         
         if(weather && weather.main){
-          const primCard = document.querySelector('#card-principal1');
+          var primCard = document.querySelector('#card-principal1');
           var cloudImage = document.querySelector('.clouds-city');
           var timeOfDay = weather.icon ? weather.icon.charAt(weather.icon.length - 1): '';
 
           if(timeOfDay==='d'){
+            console.log('Valor de timeOfDay:', timeOfDay);
+            console.log('Classes antes:', primCard.classList);
             primCard.classList.remove('card-principal-night');
             primCard.classList.add('card-principal');
+            console.log('Classes depois:', primCard.classList);
           }else if(timeOfDay==='n'){  
-            primCard.classList.remove('card-principal');
+            console.log('Valor de timeOfDay:', timeOfDay);
+            console.log('Classes antes:', primCard.classList);  
             primCard.classList.add('card-principal-night');
+            console.log('Classes depois:', primCard.classList);
           }else{
             console.error('Valor inesperado para timeOfDay:', timeOfDay);
           }
 
 
-          console.log('Valor de timeOfDay:', timeOfDay);
-          console.log('Classes antes:', primCard.classList);
-
-          // Lógica de adição/remoção de classes aqui
-
-          console.log('Classes depois:', primCard.classList);
-
-
-
 
           if(weather.main==='Clear'){
             if(weather.description==='clear sky'){ 
-              cloudImage.src='./assets/sun.png';
+              if(timeOfDay==='d'){
+                cloudImage.src='./assets/sun.png';
+              }
+              else{
+                cloudImage.src='./assets/moon.png';
+              }   
             }
           }else if (weather.main === 'Clouds') {
             if (weather.description === 'few clouds' || weather.description === 'scattered clouds') {
-              cloudImage.src = './assets/cloudy.png'; 
+
+              if(timeOfDay==='d'){
+                cloudImage.src='./assets/cloudy.png';
+              }
+              else{
+                cloudImage.src='./assets/night-cloudy.png';
+              }  
             }else if (weather.description === 'broken clouds' || weather.description === 'overcast clouds') {
               cloudImage.src = './assets/cloud.png';  
             }
           }else if(weather.main==='Rain' ){
-            cloudImage.src = './assets/rain.png'; 
+            if(timeOfDay==='d'){
+              cloudImage.src='./assets/rain.png';
+            }
+            else{
+              cloudImage.src='./assets/night-rain.png';
+            } 
           }else if(weather.main==='Drizzle'){
             cloudImage.src = './assets/rain (1).png'; 
           }else if(weather.main==='Thunderstorm'){
@@ -185,16 +197,31 @@ function mySearch(){
               
               var cards = document.querySelector('#fftw');
               var forecastElement =document.createElement('div');
-              forecastElement.innerHTML=`
-              <div class="card-day">
-                <p class="card-date-week">${day}</p>
-                <img class="card-img-weather" src="./assets/cloudy (1).png" alt="">
-                <p class="card-temp-min">${tempMin.toFixed(0)}º</p>
-                <p class="card-temp-max">${tempMax.toFixed(0)}º</p>
-              </div>`;
+              var timeOfDay = weather.icon?weather.icon.charAt(weather.icon.length-1): '';
+              if(timeOfDay==='d'){
+                forecastElement.innerHTML=`
+                <div class="card-day">
+                  <p class="card-date-week">${day}</p>
+                  <img class="card-img-weather" src="./assets/cloudy (1).png" alt="">
+                  <p class="card-temp-min">${tempMin.toFixed(0)}º</p>
+                  <p class="card-temp-max">${tempMax.toFixed(0)}º</p>
+                </div>`;
   
-              document.body.appendChild(forecastElement);
-              cards.appendChild(forecastElement);
+                document.body.appendChild(forecastElement);
+                cards.appendChild(forecastElement);
+              }else if(timeOfDay==='n'){
+
+                forecastElement.innerHTML=`
+                <div class="card-day">
+                  <p class="card-date-week">${day}</p>
+                  <img class="card-img-weather" src="./assets/cloudy-night.png" alt="">
+                  <p class="card-temp-min">${tempMin.toFixed(0)}º</p>
+                  <p class="card-temp-max">${tempMax.toFixed(0)}º</p>
+                </div>`;
+
+                document.body.appendChild(forecastElement);
+                cards.appendChild(forecastElement);
+              }
             }
           });
       }else{

@@ -1,4 +1,6 @@
-.card-principal{
+.card-principal,
+.card-principal-night
+{
     margin: 0 auto;
     padding: 3rem;
     max-width: 25rem;
@@ -8,92 +10,14 @@
     align-items: center;
     flex-direction: column;
     border-radius: 3%;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
+}
+.card-principal {
     background: var(--background-sky);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
 }
-
-.card-principal-sun{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
-    background: var(--background-clear-sky);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-
-.card-principal-rain{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
-    background: var(--background-rain);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-
-.card-principal-cloudy{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
-    background: var(--background-cloudy);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-
-.card-principal-snow{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
-    background: var(--background-snow);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-
-.card-principal-night{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
+  
+.card-principal-night {
     background: var(--background-night);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-
-.card-principal-night-rain{
-    margin: 0 auto;
-    padding: 3rem;
-    max-width: 25rem;
-    border: 0.2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 3%;
-    background: var(--background-night-rain);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
 }
 
 .card-principal .input-field{
@@ -127,31 +51,13 @@
 }
 
 @media (max-width: 600px) {
-    .card-principal {
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-sun{
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-rain{
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-cloudy{
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-snow{
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-night{
-        padding: 1.5rem; 
-        margin: 0rem 3.0rem -1rem 3.0rem;
-    }
-    .card-principal-night-rain{
+    .card-principal,
+    .card-principal-sun,
+    .card-principal-rain,
+    .card-principal-cloudy,
+    .card-principal-snow,
+    .card-principal-night,
+    .card-principal-night-rain {
         padding: 1.5rem; 
         margin: 0rem 3.0rem -1rem 3.0rem;
     }
