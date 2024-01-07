@@ -47,6 +47,7 @@ function mySearch(){
             weather:{
               main: item.weather[0].main,
               description: item.weather[0].description,
+              icon:item.weather[0].icon,
             },
           };
         }
@@ -104,11 +105,18 @@ function mySearch(){
         console.log(`   - Rajada de vento atual: ${wind.gust} m/s`);
         console.log(`   - O clima atual é: ${weather.main}`);
         console.log(`   - Descrição: ${weather.description}`);
+        console.log(`   - Turno: ${weather.icon}`);
   
         var tempCityMain=document.querySelector('#temp-city-main');
         tempCityMain.textContent=city_name;
         var tempMain=document.querySelector('#temp-main');
         tempMain.textContent=temp+'°';
+
+        var tempNewMain=document.querySelector('#temp-main-new');
+        tempNewMain.textContent=weather.main;
+        var tempNewDescription=document.querySelector('#temp-description-new');
+        tempNewDescription.textContent=weather.description;
+
         var tempSpeed=document.querySelector('#speed-wind');
         tempSpeed.textContent=wind.speed+' km/h';
         var tempWindDeg=document.querySelector('#wind-direction');
@@ -116,45 +124,55 @@ function mySearch(){
         var tempWindGust=document.querySelector('#gust-of-wind');
         tempWindGust.textContent=wind.gust+' km/h';
 
+
+        
+        
         if(weather && weather.main){
+          const primCard = document.querySelector('#card-principal1');
           var cloudImage = document.querySelector('.clouds-city');
-          var primCard = document.querySelector('#card-principal1');
+          var timeOfDay = weather.icon ? weather.icon.charAt(weather.icon.length - 1): '';
+
+          if(timeOfDay==='d'){
+            primCard.classList.remove('card-principal-night');
+            primCard.classList.add('card-principal');
+          }else if(timeOfDay==='n'){  
+            primCard.classList.remove('card-principal');
+            primCard.classList.add('card-principal-night');
+          }else{
+            console.error('Valor inesperado para timeOfDay:', timeOfDay);
+          }
+
+
+          console.log('Valor de timeOfDay:', timeOfDay);
+          console.log('Classes antes:', primCard.classList);
+
+          // Lógica de adição/remoção de classes aqui
+
+          console.log('Classes depois:', primCard.classList);
+
+
+
 
           if(weather.main==='Clear'){
-            cloudImage.src = './assets/cloudsun.png';
-
-            if(weather.description==='clear sky'){
-              cloudImage.src = './assets/sun.png';
-              primCard.classList.add('card-principal1');
+            if(weather.description==='clear sky'){ 
+              cloudImage.src='./assets/sun.png';
             }
           }else if (weather.main === 'Clouds') {
-
-            if (weather.description === 'few clouds') {
-              cloudImage.src = './assets/cloudy.png';
-              primCard.classList.add('card-principal1');
-
-            } else if (weather.description === 'broken clouds' || weather.description === 'overcast clouds') {
-              cloudImage.src = './assets/cloud.png';
-              primCard.classList.add('card-principal-rain');
+            if (weather.description === 'few clouds' || weather.description === 'scattered clouds') {
+              cloudImage.src = './assets/cloudy.png'; 
+            }else if (weather.description === 'broken clouds' || weather.description === 'overcast clouds') {
+              cloudImage.src = './assets/cloud.png';  
             }
           }else if(weather.main==='Rain' ){
-            cloudImage.src = './assets/rain.png';
-            primCard.classList.add('card-principal-rain');
-
+            cloudImage.src = './assets/rain.png'; 
           }else if(weather.main==='Drizzle'){
-            cloudImage.src = './assets/rain (1).png';
-            primCard.classList.add('card-principal-rain');
-
+            cloudImage.src = './assets/rain (1).png'; 
           }else if(weather.main==='Thunderstorm'){
-            cloudImage.src = './assets/storm.png';
-            primCard.classList.add('card-principal-rain');
-
+            cloudImage.src = './assets/storm.png';    
           }else if(weather.main==='Snow'){
-            cloudImage.src = './assets/snow.png';
-
+            cloudImage.src = './assets/snow.png'; 
           }else if(weather.main==='Mist'){
             cloudImage.src = './assets/mist.png';
-            
           }
         }
        
